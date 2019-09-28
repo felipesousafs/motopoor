@@ -28,3 +28,10 @@ func coletar_money():
 	get_node("CoinSound").play()
 	print(money)
 	label.set_text("R$ " + str(money))
+
+func _on_AnoitecerTimer_timeout():
+	pass # Replace with function body.
+
+
+func _on_AmanhecerTimer_timeout():
+	pass # Replace with function body.
