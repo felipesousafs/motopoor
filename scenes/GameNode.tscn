@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/GameNode.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Motopoor.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/character/agachar.png" type="Texture" id=9]
 [ext_resource path="res://assets/character/jump_4.png" type="Texture" id=10]
 [ext_resource path="res://assets/character/jump_6.png" type="Texture" id=11]
-[ext_resource path="res://assets/background/fundoNoite.png" type="Texture" id=12]
+[ext_resource path="res://assets/background/fundo_branco.png" type="Texture" id=12]
 [ext_resource path="res://assets/background/calcada.png" type="Texture" id=13]
 [ext_resource path="res://assets/background/asfalto.png" type="Texture" id=14]
 [ext_resource path="res://assets/background/fundo_edificios_1.png" type="Texture" id=15]
@@ -44,7 +44,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "jump"
 length = 2.0
 tracks/0/type = "value"
@@ -84,15 +84,15 @@ tracks/2/keys = {
 "values": [ 26.0, 78.0, 156.1, 182.1, 234.1, 286.1, 312.1, 26.0, 78.0, 156.1, 182.1, 234.1, 286.1, 312.1, 338.1 ]
 }
 
-[sub_resource type="SegmentShape2D" id=4]
+[sub_resource type="SegmentShape2D" id=5]
 a = Vector2( 984.286, 487.057 )
 b = Vector2( -43.0671, 487.338 )
 
-[sub_resource type="SegmentShape2D" id=5]
+[sub_resource type="SegmentShape2D" id=6]
 a = Vector2( 35.7953, 0.243896 )
 b = Vector2( 404.619, 1.44141 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 4.0
 loop = true
 step = 1.0
@@ -169,6 +169,131 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -1024.02, 0 ) ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "day_time"
+length = 60.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 12.4, 23.1, 31.2, 38.7, 45.8, 59.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.027451, 1, 0.952941, 1 ), Color( 1, 0.415686, 0.027451, 1 ), Color( 0.203922, 0.0117647, 0.439216, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 1, 0.415686, 0.027451, 1 ), Color( 0.027451, 1, 0.952941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/edificio_1/luz_edificios_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 18, 41.6, 42.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/edificio_2/luz_edificios_2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 18, 41.7, 42.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 120.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.00219468, 34.4692, 40.3967, 60, 80.2002, 95.2358, 106, 120 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.415686, 0.027451, 1 ), Color( 0.027451, 1, 0.952941, 1 ), Color( 1, 0.415686, 0.027451, 1 ), Color( 0.203922, 0.0117647, 0.439216, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 0.2, 0.0862745, 0.65098, 1 ), Color( 0.00392157, 0.529412, 0.65098, 1 ), Color( 0.027451, 1, 0.952941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/edificio_1/luz_edificios_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 36.8207, 37.8518, 105.586, 106.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/edificio_2/luz_edificios_2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 36.8207, 37.8518, 105.686, 106.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "day_time"
+length = 60.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 12.4, 23.1, 31.2, 38.7, 45.8, 59.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.027451, 1, 0.952941, 1 ), Color( 1, 0.415686, 0.027451, 1 ), Color( 0.203922, 0.0117647, 0.439216, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 0.0980392, 0.0352941, 0.345098, 1 ), Color( 1, 0.415686, 0.027451, 1 ), Color( 0.027451, 1, 0.952941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/edificio_1/luz_edificios_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 18, 41.6, 42.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/edificio_2/luz_edificios_2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 18, 41.7, 42.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.823529, 0.968627, 0.972549, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.968627, 0.94902, 0.419608, 1 ), Color( 0.823529, 0.968627, 0.972549, 1 ) ]
+}
+
 [node name="GameNode" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -189,6 +314,7 @@ shape = SubResource( 1 )
 position = Vector2( -0.465973, -5.75958 )
 scale = Vector2( 4.46933, 4.38566 )
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 1.44
 playing = true
 
@@ -200,24 +326,24 @@ rotation = 5.90096
 position = Vector2( -67.846, -76.5329 )
 scale = Vector2( 4.32211, 4.37169 )
 frames = SubResource( 3 )
-frame = 8
+frame = 5
 playing = true
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Motopoor"]
 playback_speed = 2.54
-anims/jump = SubResource( 7 )
+anims/jump = SubResource( 4 )
 
 [node name="Limites" type="StaticBody2D" parent="."]
 editor/display_folded = true
 
 [node name="Inferior" type="CollisionShape2D" parent="Limites"]
 position = Vector2( 42.9708, 50.9834 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Superior" type="CollisionShape2D" parent="Limites"]
 position = Vector2( 42.9708, -487.412 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="chao" type="Area2D" parent="Limites"]
 position = Vector2( -40.014, 526.863 )
@@ -225,13 +351,15 @@ z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/chao"]
 position = Vector2( 0, -2 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Background" type="AnimationPlayer" parent="."]
 autoplay = "bgAnim"
-anims/bgAnim = SubResource( 6 )
+anims/bgAnim = SubResource( 7 )
+anims/day_time = SubResource( 8 )
 
 [node name="bg" type="Sprite" parent="Background"]
+modulate = Color( 1, 0.415686, 0.027451, 1 )
 texture = ExtResource( 12 )
 centered = false
 
@@ -240,57 +368,66 @@ centered = false
 [node name="predio2" type="Sprite" parent="Background"]
 
 [node name="calcada1" type="Sprite" parent="Background"]
-position = Vector2( -512.01, 406.737 )
+position = Vector2( 0, 406.737 )
 scale = Vector2( 1.2062, 1.0717 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 13 )
 centered = false
 
 [node name="calcada2" type="Sprite" parent="Background"]
-position = Vector2( 512.06, 407.022 )
+position = Vector2( 1024.12, 407.022 )
 scale = Vector2( 1.20398, 1.0717 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 13 )
 centered = false
 
 [node name="asfalto1" type="Sprite" parent="Background"]
-position = Vector2( -512.01, 444.595 )
+position = Vector2( 0, 444.595 )
 scale = Vector2( 2.00221, 1.26683 )
+z_index = 1
 texture = ExtResource( 14 )
 centered = false
 
 [node name="asfalto2" type="Sprite" parent="Background"]
-position = Vector2( 512.01, 444.88 )
+position = Vector2( 1024.02, 444.88 )
 scale = Vector2( 1.99852, 1.26683 )
+z_index = 1
 texture = ExtResource( 14 )
 centered = false
 
 [node name="edificio_1" type="Node2D" parent="Background"]
-position = Vector2( -512.01, 10 )
 
 [node name="fundo_edificios_1" type="Sprite" parent="Background/edificio_1"]
+modulate = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 position = Vector2( -3.70123, 90 )
 scale = Vector2( 1.00361, 1 )
 texture = ExtResource( 15 )
 centered = false
 
 [node name="luz_edificios_1" type="Sprite" parent="Background/edificio_1"]
+modulate = Color( 0.823529, 0.968627, 0.972549, 1 )
 position = Vector2( 4, 142 )
 texture = ExtResource( 16 )
 centered = false
 
 [node name="edificio_2" type="Node2D" parent="Background"]
-position = Vector2( -512.01, 10 )
 
 [node name="fundo_edificios_2" type="Sprite" parent="Background/edificio_2"]
+modulate = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 position = Vector2( 1024, 90 )
 texture = ExtResource( 15 )
 centered = false
 
 [node name="luz_edificios_2" type="Sprite" parent="Background/edificio_2"]
+modulate = Color( 0.823529, 0.968627, 0.972549, 1 )
 position = Vector2( 1028.02, 142 )
 texture = ExtResource( 16 )
 centered = false
+
+[node name="Background3" type="AnimationPlayer" parent="."]
+autoplay = "bgAnim"
+anims/bgAnim = SubResource( 9 )
+anims/day_time = SubResource( 10 )
 
 [node name="Boletos" type="Node2D" parent="."]
 editor/display_folded = true
