@@ -358,6 +358,7 @@ rotation = 0.453786
 position = Vector2( -67.846, -76.5329 )
 scale = Vector2( 4.32211, 4.37169 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
