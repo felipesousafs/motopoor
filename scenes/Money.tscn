@@ -27,6 +27,7 @@ script = ExtResource( 1 )
 position = Vector2( 1012.97, 326.037 )
 scale = Vector2( 5.12708, 4.18874 )
 frames = SubResource( 1 )
+frame = 3
 playing = true
 centered = false
 
