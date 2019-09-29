@@ -7,7 +7,7 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
-	if cena.estado == cena.JOGANDO:
+	if cena.estado == cena.JOGANDO && cena.time:
 		position = position + Vector2(rand_range(-500, -700) * delta, 0)
 	if position.x < -1000:
 		queue_free()

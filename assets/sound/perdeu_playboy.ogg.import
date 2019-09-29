@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perdeu_playboy.ogg-b36904e931b965fae2e447cc28c697be.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/perdeu_playboy.ogg"
+dest_files=[ "res://.import/perdeu_playboy.ogg-b36904e931b965fae2e447cc28c697be.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

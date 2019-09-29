@@ -14,7 +14,6 @@ func _input(event):
 func on_touch():
 	apply_impulse(Vector2(0,0), Vector2(0, -700 + (touch_count*230)))
 	if touch_count == 1 && position.y > 370:
-		print("Position y: " + str(position.y))
 		jump_anim.play("jump")
 	
 

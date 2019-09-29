@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pague_o_que_deve.ogg-e859e4958522a53d09a8b88f75ca6519.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/pague_o_que_deve.ogg"
+dest_files=[ "res://.import/pague_o_que_deve.ogg-e859e4958522a53d09a8b88f75ca6519.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

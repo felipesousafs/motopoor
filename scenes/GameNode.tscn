@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/GameNode.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Motopoor.gd" type="Script" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://assets/sound/2_Coins.ogg" type="AudioStream" id=24]
 [ext_resource path="res://assets/sound/background.wav" type="AudioStream" id=25]
 [ext_resource path="res://scenes/Ladrao.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/GeradorLadrao.gd" type="Script" id=27]
+[ext_resource path="res://assets/sound/perdeu_playboy.ogg" type="AudioStream" id=28]
+[ext_resource path="res://assets/sound/pague_o_que_deve.ogg" type="AudioStream" id=29]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 36.4866
@@ -93,7 +96,7 @@ b = Vector2( -43.0671, 487.338 )
 
 [sub_resource type="SegmentShape2D" id=6]
 a = Vector2( 35.7953, 0.243896 )
-b = Vector2( 404.619, 1.44141 )
+b = Vector2( 1459.23, 26.3898 )
 
 [sub_resource type="Animation" id=7]
 length = 4.0
@@ -336,6 +339,7 @@ position = Vector2( -1.93597, 2.15717 )
 shape = SubResource( 1 )
 
 [node name="Running" type="Sprite" parent="Motopoor"]
+editor/display_folded = true
 
 [node name="MotopoorAnim" type="AnimatedSprite" parent="Motopoor/Running"]
 position = Vector2( -0.465973, -5.75958 )
@@ -345,8 +349,9 @@ speed_scale = 1.8
 playing = true
 
 [node name="Jump" type="Sprite" parent="Motopoor"]
+editor/display_folded = true
 visible = false
-rotation = 5.90096
+rotation = 0.453786
 
 [node name="MotopoorJump" type="AnimatedSprite" parent="Motopoor/Jump"]
 position = Vector2( -67.846, -76.5329 )
@@ -380,6 +385,7 @@ position = Vector2( 0, -2 )
 shape = SubResource( 6 )
 
 [node name="Background" type="AnimationPlayer" parent="."]
+editor/display_folded = true
 autoplay = "bgAnim"
 anims/bgAnim = SubResource( 7 )
 anims/day_time = SubResource( 8 )
@@ -455,6 +461,7 @@ texture = ExtResource( 16 )
 centered = false
 
 [node name="Background3" type="AnimationPlayer" parent="."]
+editor/display_folded = true
 autoplay = "bgAnim"
 anims/bgAnim = SubResource( 9 )
 anims/day_time = SubResource( 10 )
@@ -488,6 +495,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="font" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = 4
 
 [node name="Control" type="Control" parent="font"]
@@ -503,6 +511,24 @@ margin_right = 154.507
 margin_bottom = 35.0395
 custom_fonts/font = ExtResource( 21 )
 text = "R$ 100"
+uppercase = true
+
+[node name="will_jump" type="Node2D" parent="."]
+editor/display_folded = true
+z_index = 4
+
+[node name="Control" type="Control" parent="will_jump"]
+margin_left = 101.0
+margin_top = 74.0
+margin_right = 336.0
+margin_bottom = 149.0
+
+[node name="VaiPular" type="Label" parent="will_jump/Control"]
+margin_left = 513.0
+margin_top = -43.0
+margin_right = 915.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 21 )
 uppercase = true
 
 [node name="Moneys" type="Node2D" parent="."]
@@ -529,13 +555,43 @@ stream = ExtResource( 25 )
 volume_db = -6.058
 autoplay = true
 
-[node name="AnoitecerTimer" type="Timer" parent="."]
+[node name="Ladroes" type="Node2D" parent="."]
+position = Vector2( 10, 0 )
 
-[node name="AmanhecerTimer" type="Timer" parent="."]
+[node name="Ladrao" parent="Ladroes" instance=ExtResource( 26 )]
 
-[node name="Ladrao" parent="." instance=ExtResource( 26 )]
+[node name="GeradorLadrao" type="Position2D" parent="Ladroes"]
+position = Vector2( 1097.27, 480.021 )
+script = ExtResource( 27 )
+
+[node name="NoiteTimer" type="Timer" parent="Ladroes/GeradorLadrao"]
+wait_time = 60.0
+one_shot = true
+
+[node name="DiaTimer" type="Timer" parent="Ladroes/GeradorLadrao"]
+wait_time = 59.0
+one_shot = true
+
+[node name="FirstDaylightTimer" type="Timer" parent="Ladroes/GeradorLadrao"]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="GeradorLadraoTimer" type="Timer" parent="Ladroes/GeradorLadrao"]
+wait_time = 10.0
+one_shot = true
+
+[node name="PerdeuPlayBoy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = 13.097
+
+[node name="PagueOqueDeve" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = 11.107
 [connection signal="body_entered" from="Limites/chao" to="Motopoor" method="_on_chao_body_entered"]
 [connection signal="timeout" from="Boletos/Gerador/Timer" to="Boletos/Gerador" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Moneys/GeradorMoney/Timer" to="Moneys/GeradorMoney" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AnoitecerTimer" to="." method="_on_AnoitecerTimer_timeout"]
-[connection signal="timeout" from="AmanhecerTimer" to="." method="_on_AmanhecerTimer_timeout"]
+[connection signal="timeout" from="Ladroes/GeradorLadrao/NoiteTimer" to="Ladroes/GeradorLadrao" method="_on_NoiteTimer_timeout"]
+[connection signal="timeout" from="Ladroes/GeradorLadrao/DiaTimer" to="Ladroes/GeradorLadrao" method="_on_DiaTimer_timeout"]
+[connection signal="timeout" from="Ladroes/GeradorLadrao/FirstDaylightTimer" to="Ladroes/GeradorLadrao" method="_on_FirstDaylightTimer_timeout"]
+[connection signal="timeout" from="Ladroes/GeradorLadrao/GeradorLadraoTimer" to="Ladroes/GeradorLadrao" method="_on_GeradorLadraoTimer_timeout"]
